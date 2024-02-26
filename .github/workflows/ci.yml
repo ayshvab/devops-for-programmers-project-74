@@ -6,7 +6,7 @@ on:
       - "main"
 
 env:
-  LATEST_TAG: ayshvab/devops-for-programmers-project-74:latest
+  LATEST_TAG: ays4/devops-for-programmers-project-74:latest
 
 jobs:
   build:
