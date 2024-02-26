@@ -8,3 +8,9 @@ COPY app/package-lock.json package-lock.json
 RUN npm ci
 
 COPY app/. .
+
+EXPOSE 8080
+
+CMD npm start
+
+

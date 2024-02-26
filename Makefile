@@ -3,3 +3,9 @@ compose-test:
 
 compose-up:
 	docker compose up
+
+compose-prod-build:
+	docker compose -f docker-compose.yml build app
+
+compose-prod-push:
+	docker compose -f docker-compose.yml push app
