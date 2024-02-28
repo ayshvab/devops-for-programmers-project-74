@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: bash -c 'echo "YYYYYYYYYYYYYYYYYYYYYYYYY" && sleep 3 && npm run dev' 
+    command: bash -c 'sleep 3 && npm run dev' 
     ports:
       - 8080:8080
     env_file:
