@@ -29,7 +29,7 @@ compose-clear:
 compose-prod-build:
 	docker compose -f docker-compose.yml build app
 
-ci: 
+ci: compose-prod-build
 	docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
 compose-prod-push:
