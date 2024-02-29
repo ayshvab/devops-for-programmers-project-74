@@ -1,16 +1,17 @@
+---
 version: "3"
 
 services:
   app:
-    extends: 
-      file: docker-compose.yml
-      service: app
+    # extends: 
+    #   file: docker-compose.yml
+    #   service: app
     build:
       context: .
       dockerfile: Dockerfile
     command: bash -c 'sleep 3 && npm run dev' 
-    # ports:
-    #   - 8080:8080
+    ports:
+      - 8080:8080
     env_file:
       - .env
     volumes:
@@ -28,20 +29,8 @@ services:
       - caddy_config:/config
     depends_on:
       - app
-  db:
-    image: postgres:16.2
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-    # volumes:
-    #   - pgdata:/var/lib/postgresql/data
-    volumes:
-      - type: tmpfs
-        target: /dev/shm
-        tmpfs: 
-          size: 134217728 # 128*2^20 bytes = 128Mb
-
 
 volumes:
   caddy_data:
   caddy_config:
-  # pgdata:
+

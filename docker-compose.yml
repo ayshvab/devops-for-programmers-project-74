@@ -1,10 +1,29 @@
+---
 version: "3"
 
 services:
   app:
+    image: ays4/devops-for-programmers-project-74
     build:
       context: .
       dockerfile: Dockerfile.production
-    command: npm test
-    image: ays4/devops-for-programmers-project-74
+    command: bash -c 'sleep 3 && npm run test'
+    env_file:
+      - .env
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:16.2
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # volumes:
+    #   - type: tmpfs
+    #     target: /dev/shm
+    #     tmpfs: 
+    #       size: 134217728 # 128*2^20 bytes = 128Mb
 
+volumes:
+  pgdata:
