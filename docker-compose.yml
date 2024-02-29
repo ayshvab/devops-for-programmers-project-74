@@ -7,9 +7,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    command: bash -c 'make env && sleep 3 && npm run test'
-    # env_file:
-    #   - .env
+    command: bash -c 'sleep 3 && npm run test'
+    env_file:
+      - .env
     depends_on:
       - db
   

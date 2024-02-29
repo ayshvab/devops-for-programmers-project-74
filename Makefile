@@ -1,7 +1,6 @@
 env: 
 	cp .env.example .env
 
-
 app-install:
 	docker compose run --rm app npm ci
 
