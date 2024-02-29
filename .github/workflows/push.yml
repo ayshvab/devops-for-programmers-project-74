@@ -7,10 +7,6 @@ on:
 
 env:
   LATEST_TAG: ays4/devops-for-programmers-project-74:latest
-  DATABASE_HOST: db
-  DATABASE_NAME: postgres
-  DATABASE_USERNAME: postgres
-  DATABASE_PASSWORD: password
 
 jobs:
   build:
@@ -23,15 +19,17 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Test
-        run : |
-          make ci
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+      - name: Test
+        run : |
+          make env
+          make ci
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
+          file: Dockerfile.production
           push: true
           tags: ${{ env.LATEST_TAG }}
 
