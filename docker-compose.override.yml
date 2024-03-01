@@ -3,21 +3,15 @@ version: "3"
 
 services:
   app:
-    # extends: 
-    #   file: docker-compose.yml
-    #   service: app
     build:
       context: .
       dockerfile: Dockerfile
-    command: bash -c 'sleep 3 && npm run dev' 
+    command: bash -c 'sleep 3 && make dev' 
     ports:
       - 8080:8080
-    # env_file:
-    #   - .env
     volumes:
       - "./app:/app"
-    depends_on:
-      - db
+
   caddy:
     image: caddy:2.6
     ports:

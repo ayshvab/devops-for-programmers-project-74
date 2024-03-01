@@ -2,11 +2,10 @@
 [![Actions Status](https://github.com/ayshvab/devops-for-programmers-project-74/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ayshvab/devops-for-programmers-project-74/actions)
 [![CI](https://github.com/ayshvab/devops-for-programmers-project-74/actions/workflows/push.yml/badge.svg)](https://github.com/ayshvab/devops-for-programmers-project-74/actions)
 
-## Running:
+## Development:
 
 ```bash
-make env
-make app-install # to install deps
-make compose # run server
+make compose-setup
+make compose # run services
 ```
 
